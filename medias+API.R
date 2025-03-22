@@ -1,17 +1,26 @@
 
-#programa para calcular
+#Tendo em vista o uso dos insumos do arquivo AtividadeFase01.py, segue o código em R para cálculo de médias e desvio padrão
 
+plantInput <- data.frame(potassiumInput = c(0.05, 0.06, 0.07, 0.08, 0.09), 
+                         phosphorusInput = c(0.08, 0.09, 0.10, 0.11, 0.12))
 
-dados <- data.frame(dadosA = c(12,13,14,15,16,16))
+mean(plantInput$potassiumInput)
+mean(plantInput$phosphorusInput)
 
-mean(dados$dadosA)
+sd(plantInput$phosphorusInput)
+sd(plantInput$potassiumInput)
 
-median(dados$dadosA)
+print("Média de Potássio")
+mean(plantInput$potassiumInput)
 
-Mode(dados$dadosA)
+print("Média de Fósforo")
+mean(plantInput$phosphorusInput)
 
-sd(dados$dadosA)
+print("Desvio Padrão de Potássio")
+sd(plantInput$potassiumInput)
 
+print("Desvio Padrão de Fósforo")
+sd(plantInput$phosphorusInput)
 
 
 
