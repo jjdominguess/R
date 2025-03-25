@@ -1,3 +1,4 @@
+import sys
 from dataclasses import dataclass
 
 @dataclass
@@ -84,7 +85,6 @@ class FarmTech:
                                     break
                                 else:
                                     print("Escolha uma opção válida")
-                    
 
                         case 2:
                             while True:    
@@ -129,16 +129,33 @@ class FarmTech:
                                         """)
                                 crop = int(input())
                                 if crop == 1:
-                                    del self.arrayAgriculturalInput[0]["Cultura"]
-                                    print(self.arrayAgriculturalInput[0])
-                                    break
+                                    if "Cultura" in self.arrayAgriculturalInput[0]:
+                                        del self.arrayAgriculturalInput[0]["Cultura"]
+                                        print(self.arrayAgriculturalInput[0])
+                                    else:
+                                        print("Cultura de Milho já foi excluída.")
+                                    
+                                    returnMenu = input("Deseja voltar ao menu principal? S/N ")
+                                    if returnMenu == "S" or returnMenu == "s":
+                                        self.menuSelect()
+                                    else:
+                                        return
+                                
                                 elif crop == 2:
-                                    del self.arrayAgriculturalInput[1]["Cultura"]
-                                    print(self.arrayAgriculturalInput[1])
-                                    break
+                                    if "Cultura" in self.arrayAgriculturalInput[1]:
+                                        del self.arrayAgriculturalInput[1]["Cultura"]
+                                        print(self.arrayAgriculturalInput[1])
+                                    else:
+                                        print("Cultura de Feijão já foi excluída.")
+                                    
+                                    returnMenu = input("Deseja voltar ao menu principal? S/N ")
+                                    if returnMenu == "S" or returnMenu == "s":
+                                        self.menuSelect()
+                                    else:
+                                        return
                                 else:
                                     print("Escolha uma opção válida")
-                            break
+                            break                            
                         
                         case 2:
                             while True:
@@ -148,13 +165,28 @@ class FarmTech:
                                         """)
                                 insumo = int(input())
                                 if insumo == 1:
-                                    del self.arrayAgriculturalInput[0]["Fósforo"]
-                                    print(self.arrayAgriculturalInput[0])
-                                    break
+                                    if "Fósforo" in self.arrayAgriculturalInput[0]:
+                                        del self.arrayAgriculturalInput[0]["Fósforo"]
+                                        print(self.arrayAgriculturalInput[0])
+                                    else:
+                                        print("Fósforo já foi excluído.")
+                                    returnMenu = input("Deseja voltar ao menu principal? S/N ")
+                                    if returnMenu == "S" or returnMenu == "s":
+                                        self.menuSelect()
+                                    else:
+                                        break
+                                    
                                 elif insumo == 2:
-                                    del self.arrayAgriculturalInput[1]["Potássio"]
-                                    print(self.arrayAgriculturalInput[1])
-                                    break
+                                    if "Potássio" in self.arrayAgriculturalInput[1]:
+                                        del self.arrayAgriculturalInput[1]["Potássio"]
+                                        print(self.arrayAgriculturalInput[1])
+                                    else:
+                                        print("Potássio já foi excluído.")
+                                    returnMenu = input("Deseja voltar ao menu principal? S/N ")
+                                    if returnMenu == "S" or returnMenu == "s":
+                                        self.menuSelect()
+                                    else:
+                                        break
                                 else:
                                     print("Escolha uma opção válida")
                             break
@@ -167,7 +199,7 @@ class FarmTech:
                 exitInput = input("Deseja sair do programa? (S/N)")
                 if exitInput == "S" or exitInput == "s":
                     print("Até a próxima!")
-                    return  # Use return instead of break to exit the function
+                    sys.exit()  # Use return instead of break to exit the function
                 else:
                     self.menuSelect()
                        
